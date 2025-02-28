@@ -40,7 +40,10 @@ int player_choice() {
 
 int game_round() {
     string choice[3] = {"Rock", "Paper", "Scissors"};
-    cout << "Enter your choice: ";
+    cout << "Enter your choice: " << endl;
+    cout << "1. - Rock" << endl;
+    cout << "2. - Paper" << endl;
+    cout << "3. - Scissors" << endl;
     int pl_choice = player_choice()-1;
     int comp_choice = computer_choice();
 
@@ -85,11 +88,29 @@ void game() {
         } else {
             draw++;
         }
+        ++round;
+    }
+    /*
+    while (comp_score - pl_score == 0) {
+        cout << "Current round: " << round << endl;
+        int current_round = game_round();
+        if (current_round == 1) {
+            pl_score++;
+        } else if (current_round == 2) {
+            comp_score++;
+        } else {
+            draw++;
+        }
         round++;
     }
+    */
     cout << "Player score: " << pl_score << endl;
     cout << "Computer score: " << comp_score << endl;
     cout << "Draws: " << draw << endl;
+    cout << "Rounds: " << round - 1<< " ";
+    if ((round - 1) > 3) {
+        cout << "(extra rounds: " << round - 4 << ")" << endl;
+    }
 }
 
 int main() {
